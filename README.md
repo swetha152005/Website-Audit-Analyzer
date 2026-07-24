@@ -48,38 +48,64 @@ PagePulse
 
 ### 1. Clone Repository
 
+ 
 ```bash
-git clone <your-repository-url>
+git clone <https://github.com/swetha152005/Website-Audit-Analyzer>
+```
+```bash
+cd PagePulse
+```
 
-cd Page-Pulse
 
-2. Backend Setup
 
+### 2. Backend Setup
+```bash 
 cd server
+```
+```bash
 npm install
+```
+```bash
 node index.js
+```
+
+
 
 Backend will run on:
-
+```bash
 http://localhost:5000
+```
 
-3. Frontend Setup
-
+### 3. Frontend Setup
+```bash
 cd client
+```
+```bash
 npm install
+```
+```bash
 npm run dev
+``` 
 
-🔗 API Endpoint
+
+### 🔗 API Endpoint
 Analyze Website
 
 POST
-
+```bash
 http://localhost:5000/api/audit
+```
+
 Request Body
+```bash
+
 {
   "url": "https://www.google.com"
 }
+```
+
 Response Example
+```bash
 {
   "url": "https://www.google.com",
   "statusCode": 200,
@@ -90,6 +116,8 @@ Response Example
   "imagesWithoutAlt": 0,
   "wordCount": 358
 }
+```
+
 
 ## 📸 Screenshots
 
