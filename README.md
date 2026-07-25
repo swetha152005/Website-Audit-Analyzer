@@ -1,131 +1,169 @@
-# 🚀 PagePulse - Website Audit Tool
+# Website Audit Analyzer (Page Pulse)
 
-A web-based website auditing tool that analyzes website performance, SEO structure, and accessibility metrics instantly.
+A simple web application that audits any website URL and returns important SEO and page statistics. The project consists of a Node.js/Express backend API and a React frontend.
 
-## ✨ Features
+## Live Demo
 
-- 🌐 Website availability checking
-- ⚡ Response time analysis
-- 📄 Page title extraction
-- 🔍 H1 heading analysis
-- 🖼 Missing image ALT detection
-- 📝 Website word count analysis
-- 📋 JSON report copy feature
+**Frontend:** https://website-audit-analyzer.vercel.app
 
+**Backend API:** https://website-audit-analyzer-production.up.railway.app
 
-## 🛠 Tech Stack
+## Features
+
+* Analyze any valid website URL
+* Returns HTTP Status Code
+* Measures Response Time
+* Extracts Page Title
+* Extracts Meta Description
+* Counts H1 Tags
+* Counts Images Missing ALT Text
+* Calculates Approximate Word Count
+* Handles Invalid URLs
+* Handles Timeout Errors
+* Handles Non-HTML Responses
+
+## Tech Stack
 
 ### Frontend
-- React.js
-- CSS3
-- Vite
+
+* React
+* Vite
+* CSS
 
 ### Backend
-- Node.js
-- Express.js
 
-### Libraries
-- Axios
-- Cheerio
-- CORS
+* Node.js
+* Express.js
+* Axios
+* Cheerio
 
+### Deployment
 
-## 📂 Project Structure
-PagePulse
-│
-├── client
-│ ├── src
-│ └── React Application
-│
-├── server
-│ ├── routes
-│ ├── controllers
-│ └── utils
-│
-└── README.md
+* Frontend: Vercel
+* Backend: Railway
 
-## ⚙️ Installation
+---
 
-### 1. Clone Repository
+# Installation
 
- 
+## Clone Repository
+
 ```bash
-git clone <https://github.com/swetha152005/Website-Audit-Analyzer>
-```
-```bash
-cd PagePulse
+git clone <your-repository-url>
+cd Website-Audit-Analyzer
 ```
 
+## Backend
 
-
-### 2. Backend Setup
-```bash 
+```bash
 cd server
-```
-```bash
 npm install
-```
-```bash
-node index.js
+npm start
 ```
 
+Backend runs on:
 
-
-Backend will run on:
-```bash
+```
 http://localhost:5000
 ```
 
-### 3. Frontend Setup
+## Frontend
+
 ```bash
 cd client
-```
-```bash
 npm install
-```
-```bash
 npm run dev
-``` 
-
-
-### 🔗 API Endpoint
-Analyze Website
-
-POST
-```bash
-http://localhost:5000/api/audit
 ```
 
-Request Body
-```bash
+Frontend runs on:
 
+```
+http://localhost:5173
+```
+
+---
+
+# API Contract
+
+## Endpoint
+
+```
+POST /api/audit
+```
+
+### Request Body
+
+```json
 {
-  "url": "https://www.google.com"
+  "url": "https://google.com"
 }
 ```
 
-Response Example
-```bash
+### Success Response
+
+```json
 {
-  "url": "https://www.google.com",
+  "url": "https://google.com",
   "statusCode": 200,
-  "responseTime": "507 ms",
+  "responseTime": "320 ms",
   "title": "Google",
-  "metaDescription": "No description",
-  "h1Count": 0,
+  "metaDescription": "...",
+  "h1Count": 1,
   "imagesWithoutAlt": 0,
-  "wordCount": 358
+  "wordCount": 350
 }
 ```
 
+### Error Responses
 
-## 📸 Screenshots
+* Invalid URL
+* Request Timeout
+* Non-HTML Content
+* Internal Server Error
 
-### Homepage
+---
 
-![Homepage](screenshots/homepage.png)
+# Testing
 
+Run the backend tests:
 
-### Website Audit Report
-![Audit Result](screenshots/audit-result.png)
+```bash
+cd server
+npm test
+```
 
+The test suite includes:
+
+* Happy Path
+* Non-HTML Response
+* Timeout Handling
+
+---
+
+# Design Decisions
+
+### 1. Express + React Architecture
+
+I separated the frontend and backend to keep the API reusable and the UI independent.
+
+### 2. Axios + Cheerio
+
+Axios is used to fetch webpages while Cheerio efficiently parses HTML without requiring a browser engine.
+
+### 3. Error Handling
+
+Instead of allowing the application to crash, invalid URLs, timeout errors, and non-HTML responses return meaningful error messages to improve reliability and user experience.
+
+---
+
+# AI Usage
+
+I used ChatGPT to speed up development, understand deployment, improve the test cases, and refine the project documentation. After using AI suggestions, I verified the implementation myself, integrated the code into my own project structure, tested the application, fixed deployment issues, and made changes where necessary to ensure the final submission worked correctly.
+
+---
+
+# Author
+
+Swetha Marirajan
+
+Built for Digital Heroes Training Task

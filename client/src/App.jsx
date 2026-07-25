@@ -26,15 +26,15 @@ const analyzeWebsite = async () => {
 
   try {
 
-    const response = await fetch("http://localhost:5000/api/audit", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        url: websiteUrl,
-      }),
-    });
+    const response = await fetch("https://website-audit-analyzer-production.up.railway.app/api/audit", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    url: url
+  }),
+});
 
 
     const data = await response.json();
